@@ -52,7 +52,7 @@ public class MonopolyBoard extends Component {
 	static final Frame trade = new Frame("Trade Your Properties");
 	private Image board;
 	// if turn == true, it is player1's turn
-	public boolean turn   = true;
+	public int turn   = 1;
 	// if rolled == true, the player has already rolled.
 	public boolean rolled = false;
 	// the numbers on the dice
@@ -67,13 +67,19 @@ public class MonopolyBoard extends Component {
 ////////////////////////////////////////////////////////////////////////////////////
 	public MonopolyBoard( String one, String two, String three, String four, 
                 String five, String six, String seven, String eight) {
-		//create the two players with the specified names
+		//create the eight players with the specified names
 		Player1 = new MonopolyPlayer( one, 1 );
 		Player2 = new MonopolyPlayer( two, 2 );
                 Player3 = new MonopolyPlayer( three, 3 );
+                Player4 = new MonopolyPlayer( four, 4 );
+                Player5 = new MonopolyPlayer( five, 5 );
+                Player6 = new MonopolyPlayer( six, 6 );
+                Player7 = new MonopolyPlayer( seven, 7 );
+                Player8 = new MonopolyPlayer( eight, 8 );
                 
-		//create the propertymanager with the two players
-		propertymanager = new PropertyManager( Player1, Player2 );
+		//create the propertymanager with the eight players
+		propertymanager = new PropertyManager( Player1, Player2, Player3, Player4,
+                        Player5, Player6, Player7, Player8);
 		//enable events for the board
 		enableEvents( AWTEvent.MOUSE_EVENT_MASK );
 		enableEvents( AWTEvent.KEY_EVENT_MASK );
@@ -532,7 +538,7 @@ public class MonopolyBoard extends Component {
 
 
 		//Draw the property stats for the property just landed on by the player
-		if( turn ) {
+		if(turn == 1)  {//player1's turn
 		if (propertymanager.one.Position == 1  || propertymanager.one.Position == 3 ){
 			g.setColor(Color.blue);
 			g.fillRect(116,210,160,50);}			
@@ -573,7 +579,7 @@ public class MonopolyBoard extends Component {
 			if( !rolled )
 				g.drawString( "Roll", 180, 140 );
 		}
-		else { // for player 2
+                else if(turn == 2) { //player2's turn
 		if (propertymanager.two.Position == 1  || propertymanager.two.Position == 3 ){
 			g.setColor(Color.blue);
 			g.fillRect(116,210,160,50);}			
@@ -612,15 +618,265 @@ public class MonopolyBoard extends Component {
 			if( !rolled )
 				g.drawString( "Roll", 180, 140 );
 		}
+                else if(turn == 3) { //player3's turn
+		if (propertymanager.three.Position == 1  || propertymanager.three.Position == 3 ){
+			g.setColor(Color.blue);
+			g.fillRect(116,210,160,50);}			
+		else if (propertymanager.three.Position == 0 || propertymanager.three.Position == 2 || propertymanager.three.Position == 4 || propertymanager.three.Position == 7|| propertymanager.three.Position == 17|| propertymanager.three.Position == 22 || propertymanager.three.Position == 4 || propertymanager.three.Position == 36|| propertymanager.three.Position == 38){
+			g.setColor(Color.lightGray);
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.three.Position == 6 || propertymanager.three.Position == 8 || propertymanager.three.Position == 9 ){
+			g.setColor( new Color( (200), (200), (240) ) );
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.three.Position == 11 || propertymanager.three.Position == 13 || propertymanager.three.Position == 14){
+			g.setColor( new Color( (200), (30), (200) ) );
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.three.Position == 16 || propertymanager.three.Position == 18 || propertymanager.three.Position == 19 ){
+			g.setColor( new Color( (220), (140), (140) ) );
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.three.Position == 21 || propertymanager.three.Position == 23 || propertymanager.three.Position == 24 ){
+			g.setColor( new Color( (180), (10), (10) ) );
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.three.Position == 26 || propertymanager.three.Position == 27 || propertymanager.three.Position == 29 ){
+			g.setColor(Color.yellow);
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.three.Position == 31 || propertymanager.three.Position == 32 || propertymanager.three.Position == 34 ){
+			g.setColor(new Color( (10),(180),(10)));
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.three.Position == 37 || propertymanager.three.Position == 39  ){
+			g.setColor(new Color( (30), (30), (100) ));
+			g.fillRect(116,210,160,50);}		
+		else {
+			g.setColor(Color.white);
+			g.fillRect(116,210,160,50);}
+
+			propertymanager.DrawPropertyStats( Player3.Position, 110, 207, g );
+			g.setColor( Color.red);
+			g.setFont( new Font( "Courier", Font.PLAIN, 18 ) );
+			g.drawString( "Turn = " + Player3.Name, 110, 120 );
+			if( !rolled )
+				g.drawString( "Roll", 180, 140 );
+		}
+                else if (turn == 4) { //player4's turn
+		if (propertymanager.four.Position == 1  || propertymanager.four.Position == 3 ){
+			g.setColor(Color.blue);
+			g.fillRect(116,210,160,50);}			
+		else if (propertymanager.four.Position == 0 || propertymanager.four.Position == 2 || propertymanager.four.Position == 4 || propertymanager.four.Position == 7|| propertymanager.four.Position == 17|| propertymanager.four.Position == 22 || propertymanager.four.Position == 4 || propertymanager.four.Position == 36|| propertymanager.four.Position == 38){
+			g.setColor(Color.lightGray);
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.four.Position == 6 || propertymanager.four.Position == 8 || propertymanager.four.Position == 9 ){
+			g.setColor( new Color( (200), (200), (240) ) );
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.four.Position == 11 || propertymanager.four.Position == 13 || propertymanager.four.Position == 14){
+			g.setColor( new Color( (200), (30), (200) ) );
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.four.Position == 16 || propertymanager.four.Position == 18 || propertymanager.four.Position == 19 ){
+			g.setColor( new Color( (220), (140), (140) ) );
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.four.Position == 21 || propertymanager.four.Position == 23 || propertymanager.four.Position == 24 ){
+			g.setColor( new Color( (180), (10), (10) ) );
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.four.Position == 26 || propertymanager.four.Position == 27 || propertymanager.four.Position == 29 ){
+			g.setColor(Color.yellow);
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.four.Position == 31 || propertymanager.four.Position == 32 || propertymanager.four.Position == 34 ){
+			g.setColor(new Color( (10),(180),(10)));
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.four.Position == 37 || propertymanager.four.Position == 39  ){
+			g.setColor(new Color( (30), (30), (100) ));
+			g.fillRect(116,210,160,50);}		
+		else {
+			g.setColor(Color.white);
+			g.fillRect(116,210,160,50);}
+
+			propertymanager.DrawPropertyStats( Player4.Position, 110, 207, g );
+			g.setColor( Color.red);
+			g.setFont( new Font( "Courier", Font.PLAIN, 18 ) );
+			g.drawString( "Turn = " + Player4.Name, 110, 120 );
+			if( !rolled )
+				g.drawString( "Roll", 180, 140 );
+		}
+                else if (turn == 5) { //player5's turn
+		if (propertymanager.five.Position == 1  || propertymanager.five.Position == 3 ){
+			g.setColor(Color.blue);
+			g.fillRect(116,210,160,50);}			
+		else if (propertymanager.five.Position == 0 || propertymanager.five.Position == 2 || propertymanager.five.Position == 4 || propertymanager.five.Position == 7|| propertymanager.five.Position == 17|| propertymanager.five.Position == 22 || propertymanager.five.Position == 4 || propertymanager.five.Position == 36|| propertymanager.five.Position == 38){
+			g.setColor(Color.lightGray);
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.five.Position == 6 || propertymanager.five.Position == 8 || propertymanager.five.Position == 9 ){
+			g.setColor( new Color( (200), (200), (240) ) );
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.five.Position == 11 || propertymanager.five.Position == 13 || propertymanager.five.Position == 14){
+			g.setColor( new Color( (200), (30), (200) ) );
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.five.Position == 16 || propertymanager.five.Position == 18 || propertymanager.five.Position == 19 ){
+			g.setColor( new Color( (220), (140), (140) ) );
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.five.Position == 21 || propertymanager.five.Position == 23 || propertymanager.five.Position == 24 ){
+			g.setColor( new Color( (180), (10), (10) ) );
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.five.Position == 26 || propertymanager.five.Position == 27 || propertymanager.five.Position == 29 ){
+			g.setColor(Color.yellow);
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.five.Position == 31 || propertymanager.five.Position == 32 || propertymanager.five.Position == 34 ){
+			g.setColor(new Color( (10),(180),(10)));
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.five.Position == 37 || propertymanager.five.Position == 39  ){
+			g.setColor(new Color( (30), (30), (100) ));
+			g.fillRect(116,210,160,50);}		
+		else {
+			g.setColor(Color.white);
+			g.fillRect(116,210,160,50);}
+
+			propertymanager.DrawPropertyStats( Player5.Position, 110, 207, g );
+			g.setColor( Color.red);
+			g.setFont( new Font( "Courier", Font.PLAIN, 18 ) );
+			g.drawString( "Turn = " + Player5.Name, 110, 120 );
+			if( !rolled )
+				g.drawString( "Roll", 180, 140 );
+		}
+                else if (turn == 6) { //player6's turn
+		if (propertymanager.six.Position == 1  || propertymanager.six.Position == 3 ){
+			g.setColor(Color.blue);
+			g.fillRect(116,210,160,50);}			
+		else if (propertymanager.six.Position == 0 || propertymanager.six.Position == 2 || propertymanager.six.Position == 4 || propertymanager.six.Position == 7|| propertymanager.six.Position == 17|| propertymanager.six.Position == 22 || propertymanager.six.Position == 4 || propertymanager.six.Position == 36|| propertymanager.six.Position == 38){
+			g.setColor(Color.lightGray);
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.six.Position == 6 || propertymanager.six.Position == 8 || propertymanager.six.Position == 9 ){
+			g.setColor( new Color( (200), (200), (240) ) );
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.six.Position == 11 || propertymanager.six.Position == 13 || propertymanager.six.Position == 14){
+			g.setColor( new Color( (200), (30), (200) ) );
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.six.Position == 16 || propertymanager.six.Position == 18 || propertymanager.six.Position == 19 ){
+			g.setColor( new Color( (220), (140), (140) ) );
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.six.Position == 21 || propertymanager.six.Position == 23 || propertymanager.six.Position == 24 ){
+			g.setColor( new Color( (180), (10), (10) ) );
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.six.Position == 26 || propertymanager.six.Position == 27 || propertymanager.six.Position == 29 ){
+			g.setColor(Color.yellow);
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.six.Position == 31 || propertymanager.six.Position == 32 || propertymanager.six.Position == 34 ){
+			g.setColor(new Color( (10),(180),(10)));
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.six.Position == 37 || propertymanager.six.Position == 39  ){
+			g.setColor(new Color( (30), (30), (100) ));
+			g.fillRect(116,210,160,50);}		
+		else {
+			g.setColor(Color.white);
+			g.fillRect(116,210,160,50);}
+
+			propertymanager.DrawPropertyStats( Player6.Position, 110, 207, g );
+			g.setColor( Color.red);
+			g.setFont( new Font( "Courier", Font.PLAIN, 18 ) );
+			g.drawString( "Turn = " + Player6.Name, 110, 120 );
+			if( !rolled )
+				g.drawString( "Roll", 180, 140 );
+		}
+                 else if (turn == 7) { //player7's turn
+		if (propertymanager.seven.Position == 1  || propertymanager.seven.Position == 3 ){
+			g.setColor(Color.blue);
+			g.fillRect(116,210,160,50);}			
+		else if (propertymanager.seven.Position == 0 || propertymanager.seven.Position == 2 || propertymanager.seven.Position == 4 || propertymanager.seven.Position == 7|| propertymanager.seven.Position == 17|| propertymanager.seven.Position == 22 || propertymanager.seven.Position == 4 || propertymanager.seven.Position == 36|| propertymanager.seven.Position == 38){
+			g.setColor(Color.lightGray);
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.seven.Position == 6 || propertymanager.seven.Position == 8 || propertymanager.seven.Position == 9 ){
+			g.setColor( new Color( (200), (200), (240) ) );
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.seven.Position == 11 || propertymanager.seven.Position == 13 || propertymanager.seven.Position == 14){
+			g.setColor( new Color( (200), (30), (200) ) );
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.seven.Position == 16 || propertymanager.seven.Position == 18 || propertymanager.seven.Position == 19 ){
+			g.setColor( new Color( (220), (140), (140) ) );
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.seven.Position == 21 || propertymanager.seven.Position == 23 || propertymanager.seven.Position == 24 ){
+			g.setColor( new Color( (180), (10), (10) ) );
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.seven.Position == 26 || propertymanager.seven.Position == 27 || propertymanager.seven.Position == 29 ){
+			g.setColor(Color.yellow);
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.seven.Position == 31 || propertymanager.seven.Position == 32 || propertymanager.seven.Position == 34 ){
+			g.setColor(new Color( (10),(180),(10)));
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.seven.Position == 37 || propertymanager.seven.Position == 39  ){
+			g.setColor(new Color( (30), (30), (100) ));
+			g.fillRect(116,210,160,50);}		
+		else {
+			g.setColor(Color.white);
+			g.fillRect(116,210,160,50);}
+
+			propertymanager.DrawPropertyStats( Player7.Position, 110, 207, g );
+			g.setColor( Color.red);
+			g.setFont( new Font( "Courier", Font.PLAIN, 18 ) );
+			g.drawString( "Turn = " + Player7.Name, 110, 120 );
+			if( !rolled )
+				g.drawString( "Roll", 180, 140 );
+		}
+                else if (turn == 8) { //player8's turn
+		if (propertymanager.eight.Position == 1  || propertymanager.eight.Position == 3 ){
+			g.setColor(Color.blue);
+			g.fillRect(116,210,160,50);}			
+		else if (propertymanager.eight.Position == 0 || propertymanager.eight.Position == 2 || propertymanager.eight.Position == 4 || propertymanager.eight.Position == 7|| propertymanager.eight.Position == 17|| propertymanager.eight.Position == 22 || propertymanager.eight.Position == 4 || propertymanager.eight.Position == 36|| propertymanager.eight.Position == 38){
+			g.setColor(Color.lightGray);
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.eight.Position == 6 || propertymanager.eight.Position == 8 || propertymanager.eight.Position == 9 ){
+			g.setColor( new Color( (200), (200), (240) ) );
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.eight.Position == 11 || propertymanager.eight.Position == 13 || propertymanager.eight.Position == 14){
+			g.setColor( new Color( (200), (30), (200) ) );
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.eight.Position == 16 || propertymanager.eight.Position == 18 || propertymanager.eight.Position == 19 ){
+			g.setColor( new Color( (220), (140), (140) ) );
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.eight.Position == 21 || propertymanager.eight.Position == 23 || propertymanager.eight.Position == 24 ){
+			g.setColor( new Color( (180), (10), (10) ) );
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.eight.Position == 26 || propertymanager.eight.Position == 27 || propertymanager.eight.Position == 29 ){
+			g.setColor(Color.yellow);
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.eight.Position == 31 || propertymanager.eight.Position == 32 || propertymanager.eight.Position == 34 ){
+			g.setColor(new Color( (10),(180),(10)));
+			g.fillRect(116,210,160,50);}
+		else if (propertymanager.eight.Position == 37 || propertymanager.eight.Position == 39  ){
+			g.setColor(new Color( (30), (30), (100) ));
+			g.fillRect(116,210,160,50);}		
+		else {
+			g.setColor(Color.white);
+			g.fillRect(116,210,160,50);}
+
+			propertymanager.DrawPropertyStats( Player8.Position, 110, 207, g );
+			g.setColor( Color.red);
+			g.setFont( new Font( "Courier", Font.PLAIN, 18 ) );
+			g.drawString( "Turn = " + Player8.Name, 110, 120 );
+			if( !rolled )
+				g.drawString( "Roll", 180, 140 );
+		}
+                
 		//Draw the players
 
 		Player1.DrawPlayer( g );
 		
 		Player2.DrawPlayer( g );
+                
+                Player3.DrawPlayer( g );
+                
+                Player4.DrawPlayer( g );
+                
+                Player5.DrawPlayer( g );
+                
+                Player6.DrawPlayer( g );
+                
+                Player7.DrawPlayer( g );
+                
+                Player8.DrawPlayer( g );
+                
 		
 		//is the player out of money?  if so, draw the frame telling them they
 		//must sell property
-		if( (Player1.Money < 0 || Player2.Money < 0) && !frame.isShowing() ) {
+		if( (Player1.Money < 0 || Player2.Money < 0 || Player3.Money < 0 || Player4.Money < 0
+                        || Player5.Money < 0 || Player6.Money < 0 || Player7.Money < 0 
+                        || Player8.Money < 0) && !frame.isShowing() ) {
 			frame.setBackground( Color.lightGray );
 			frame.setSize( 400, 110 );
 			Label lab = new Label( "You must sell property or houses to pay your debt." );
@@ -663,18 +919,55 @@ public class MonopolyBoard extends Component {
 //mehtods used in Monopoly . java.
 //getting out of jail...
 	public void pay50() {
-			if( turn && Player1.inJail ) {
+			if( turn == 1 && Player1.inJail ) {
 						Player1.Money -= 50;
 						System.out.println( Player1.Name +" paid $50 to get out of jail." );
 						propertymanager.Properties[20][1] += 50;
 						Player1.inJail = false;
 					}
-					else if( !turn && Player2.inJail ) {
+					else if( turn == 2 && Player2.inJail ) {
 						Player2.Money -= 50;
 						System.out.println( Player2.Name +" paid $50 to get out of jail." );
 						propertymanager.Properties[20][1] += 50;
 						Player2.inJail = false;
 					}
+                                        else if( turn == 3 && Player3.inJail ) {
+						Player3.Money -= 50;
+						System.out.println( Player3.Name +" paid $50 to get out of jail." );
+						propertymanager.Properties[20][1] += 50;
+						Player3.inJail = false;
+                                                
+					}
+                                        else if( turn == 4 && Player4.inJail ) {
+						Player4.Money -= 50;
+						System.out.println( Player4.Name +" paid $50 to get out of jail." );
+						propertymanager.Properties[20][1] += 50;
+						Player4.inJail = false;
+					}
+                                        else if( turn == 5 && Player5.inJail ) {
+						Player5.Money -= 50;
+						System.out.println( Player5.Name +" paid $50 to get out of jail." );
+						propertymanager.Properties[20][1] += 50;
+						Player5.inJail = false;
+					}
+                                        else if( turn == 6 && Player6.inJail ) {
+						Player6.Money -= 50;
+						System.out.println( Player6.Name +" paid $50 to get out of jail." );
+						propertymanager.Properties[20][1] += 50;
+						Player6.inJail = false;
+					}else if( turn == 7 && Player7.inJail ) {
+						Player7.Money -= 50;
+						System.out.println( Player7.Name +" paid $50 to get out of jail." );
+						propertymanager.Properties[20][1] += 50;
+						Player7.inJail = false;
+					}
+                                        else if( turn == 8 && Player8.inJail ) {
+						Player8.Money -= 50;
+						System.out.println( Player8.Name +" paid $50 to get out of jail." );
+						propertymanager.Properties[20][1] += 50;
+						Player8.inJail = false;
+					}
+                        
 					repaint();
 				}
 				
