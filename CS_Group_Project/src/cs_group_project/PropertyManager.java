@@ -24,6 +24,12 @@ public class PropertyManager {
 	private MonopolyBoard monopolyboard;
 	MonopolyPlayer one;
 	MonopolyPlayer two;
+        MonopolyPlayer three;
+	MonopolyPlayer four;
+        MonopolyPlayer five;
+	MonopolyPlayer six;
+        MonopolyPlayer seven;
+	MonopolyPlayer eight;
 /*
  *		00  = owner, -1 if cannot be owned, 1 if player1, and 2 if player2, 0 if unowned
  *		01  = number of houses.  -1 if houses cannot be put on it
@@ -162,6 +168,10 @@ public class PropertyManager {
 		one = a;
 		two = b;
 	}
+
+    PropertyManager(MonopolyPlayer Player1, MonopolyPlayer Player2, MonopolyPlayer Player3, MonopolyPlayer Player4, MonopolyPlayer Player5, MonopolyPlayer Player6, MonopolyPlayer Player7, MonopolyPlayer Player8) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 	//Used to draw the stats of the property last landed on.
 	public void DrawPropertyStats( int PropertyNum, int x, int y, Graphics g ) {
 		//method to check and draw which property player has landed on!
