@@ -1,24 +1,15 @@
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.awt.Label;
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * expanded the template of the monoployplayer class for 8 players
+ * feel free to edit as needed.
  */
 
-package cs_group_project;
-
-/**
- *
- * @author md kashem
- */
-import java.applet.Applet;
-import java.awt.event.*;
-import java.awt.image.*;
-import java.lang.*;
-import java.util.*;
-import java.net.*;
-import java.awt.*;
-import java.io.*;
 public class MonopolyPlayer {
+
 	public String Name;
 	public int Money = 1500;
 	public int Position = 0;
@@ -112,7 +103,7 @@ public class MonopolyPlayer {
 			g.drawString( "$" + Money, 50, y+20 );
 			}
 		}
-		else {
+		else if( PlayerNum == 2 ){
 			y = 510;
 			g.setColor( Color.red );
 			if( inJail )
@@ -120,6 +111,102 @@ public class MonopolyPlayer {
 			else
 				g.fillOval( placement[Position][0]+9,placement[Position][1]+9,15, 15 );
 			if (PlayerNum == 2) {
+				g.setFont( new Font( "Arial", Font.BOLD, 16 ) );
+				FontMetrics fm = g.getFontMetrics();
+				int w = fm.stringWidth(Name);
+				g.drawString( Name, 300, y );
+				w = fm.stringWidth("$"+Money);
+				g.drawString( "$" + Money, 300, y+20 );
+			}
+		}
+		else if( PlayerNum == 3 ){
+			y = 510;
+			g.setColor( Color.green );
+			if( inJail )
+				g.fillOval( 39, 39, 15, 15 );
+			else
+				g.fillOval( placement[Position][0]+9,placement[Position][1]+9,15, 15 );
+			if (PlayerNum == 3) {
+				g.setFont( new Font( "Arial", Font.BOLD, 16 ) );
+				FontMetrics fm = g.getFontMetrics();
+				int w = fm.stringWidth(Name);
+				g.drawString( Name, 300, y );
+				w = fm.stringWidth("$"+Money);
+				g.drawString( "$" + Money, 300, y+20 );
+			}
+		}
+		else if( PlayerNum == 4 ){
+			y = 510;
+			g.setColor( Color.yellow );
+			if( inJail )
+				g.fillOval( 39, 39, 15, 15 );
+			else
+				g.fillOval( placement[Position][0]+9,placement[Position][1]+9,15, 15 );
+			if (PlayerNum == 4) {
+				g.setFont( new Font( "Arial", Font.BOLD, 16 ) );
+				FontMetrics fm = g.getFontMetrics();
+				int w = fm.stringWidth(Name);
+				g.drawString( Name, 300, y );
+				w = fm.stringWidth("$"+Money);
+				g.drawString( "$" + Money, 300, y+20 );
+			}
+		}
+		else if( PlayerNum == 5 ){
+			y = 510;
+			g.setColor( Color.orange );
+			if( inJail )
+				g.fillOval( 39, 39, 15, 15 );
+			else
+				g.fillOval( placement[Position][0]+9,placement[Position][1]+9,15, 15 );
+			if (PlayerNum == 5) {
+				g.setFont( new Font( "Arial", Font.BOLD, 16 ) );
+				FontMetrics fm = g.getFontMetrics();
+				int w = fm.stringWidth(Name);
+				g.drawString( Name, 300, y );
+				w = fm.stringWidth("$"+Money);
+				g.drawString( "$" + Money, 300, y+20 );
+			}
+		}
+		else if( PlayerNum == 6 ){
+			y = 510;
+			g.setColor( Color.black );
+			if( inJail )
+				g.fillOval( 39, 39, 15, 15 );
+			else
+				g.fillOval( placement[Position][0]+9,placement[Position][1]+9,15, 15 );
+			if (PlayerNum == 6) {
+				g.setFont( new Font( "Arial", Font.BOLD, 16 ) );
+				FontMetrics fm = g.getFontMetrics();
+				int w = fm.stringWidth(Name);
+				g.drawString( Name, 300, y );
+				w = fm.stringWidth("$"+Money);
+				g.drawString( "$" + Money, 300, y+20 );
+			}
+		}
+		else if( PlayerNum == 7 ){
+			y = 510;
+			g.setColor( Color.white );
+			if( inJail )
+				g.fillOval( 39, 39, 15, 15 );
+			else
+				g.fillOval( placement[Position][0]+9,placement[Position][1]+9,15, 15 );
+			if (PlayerNum == 7) {
+				g.setFont( new Font( "Arial", Font.BOLD, 16 ) );
+				FontMetrics fm = g.getFontMetrics();
+				int w = fm.stringWidth(Name);
+				g.drawString( Name, 300, y );
+				w = fm.stringWidth("$"+Money);
+				g.drawString( "$" + Money, 300, y+20 );
+			}
+		}
+		else {
+			y = 510;
+			g.setColor( Color.magenta );
+			if( inJail )
+				g.fillOval( 39, 39, 15, 15 );
+			else
+				g.fillOval( placement[Position][0]+9,placement[Position][1]+9,15, 15 );
+			if (PlayerNum == 8) {
 				g.setFont( new Font( "Arial", Font.BOLD, 16 ) );
 				FontMetrics fm = g.getFontMetrics();
 				int w = fm.stringWidth(Name);
