@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 public class Game {
 
     private static int port_ = 10000;    
-    private static ArrayList<Player> players_ = new ArrayList<Player>();
+    private static ArrayList<MonopolyPlayer> players_ = new ArrayList<MonopolyPlayer>();
     private static ArrayList<Place> places_ = new ArrayList<Place>();
     private static ArrayList<Group> groups_ = new ArrayList<Group>();
 
@@ -62,13 +62,13 @@ public class Game {
         }
         //thread_.start();
     }
-    public static void addPlayer(Player player) {
+    public static void addPlayer(MonopolyPlayer player) {
         players_.add(player);
     }
-    public static Player getPlayer(int index) {
+    public static MonopolyPlayer getPlayer(int index) {
         return (players_.get(index));
     }
-    public static ArrayList<Player> getPlayers() {
+    public static ArrayList<MonopolyPlayer> getPlayers() {
         return (players_);
     }
     public static Place getPlace(int index) {

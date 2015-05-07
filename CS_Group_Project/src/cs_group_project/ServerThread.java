@@ -149,7 +149,7 @@ public class ServerThread extends Thread{
             
         }
         else if (type==6) {                          // rest house
-            for (Player player : Server.getPlayers()) {
+            for (MonopolyPlayer player : Server.getPlayers()) {
                 player.changeCash(-Server.restHouseAmount);
             }
             Server.getPlayer(index_).changeCash(Server.nPlayers*Server.restHouseAmount);
@@ -158,7 +158,7 @@ public class ServerThread extends Thread{
             }
         }
         else if (type==7) {                     // club
-            for (Player player : Server.getPlayers()) {
+            for (MonopolyPlayer player : Server.getPlayers()) {
                 player.changeCash(Server.clubAmount);
             }
             Server.getPlayer(index_).changeCash(-Server.nPlayers*Server.clubAmount);
@@ -254,7 +254,7 @@ public class ServerThread extends Thread{
 
     public boolean mortgage(String msg) {
         Place place = Server.getPlace(Integer.parseInt(msg.substring(2)));
-        Player player = Server.getPlayer(index_);
+        MonopolyPlayer player = Server.getPlayer(index_);
         if (place.isMortgaged()) {
             if (player.changeCash(-place.getPrice()*55/100)==false)
                 sendMessage("n");

@@ -16,7 +16,7 @@ public class Server {
 
     private static int port_ = 10000;
     private static ArrayList<ServerThread> threads_ = new ArrayList<ServerThread>();
-    private static ArrayList<Player> players_ = new ArrayList<Player>();
+    private static ArrayList<MonopolyPlayer> players_ = new ArrayList<MonopolyPlayer>();
     private static ArrayList<Place> places_ = new ArrayList<Place>();
     private static ArrayList<Group> groups_ = new ArrayList<Group>();
     protected static int currentPlayer_ = 0;
@@ -100,7 +100,7 @@ public class Server {
      * Add Player details to the array list maintained in the server.
      * @param player - player details
      */
-    public static void addPlayer(Player player) {
+    public static void addPlayer(MonopolyPlayer player) {
         players_.add(player);
     }
 
@@ -109,7 +109,7 @@ public class Server {
      * @param index - Index of the player in the arraylist
      * @return - Player details.
      */
-    public static Player getPlayer(int index) {
+    public static MonopolyPlayer getPlayer(int index) {
         return (players_.get(index));
     }
 
@@ -144,7 +144,7 @@ public class Server {
      * Get the array of players
      * @return -  Array List of players
      */
-    public static ArrayList<Player> getPlayers() {
+    public static ArrayList<MonopolyPlayer> getPlayers() {
         return (players_);
     }
 
